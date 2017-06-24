@@ -26,6 +26,13 @@ So, you say: "WoW, that's great! But what about the id?" Let's talk about this r
     b. h1#pagetitle.basetheme (pressing SHORTCUT) => <h1 id="pagetitle" class="basetheme"></h1>
     c. #pagebody.basetheme.shadow (pressing SHORTCUT) => <div id="pagebody" class="basetheme shadow"></div>
 
+Furthermore, for us as tableless developers, we have the possibility to make a div tag fastly:
+
+    a. . (pressing SHORTCUT) => <div class=""></div>
+    b. # (pressing SHORTCUT) => <div></div>
+
+It worths to note that FastTagging adds a menu option at "Edit" menu called **Auto Create TAG**, so you can use it if wish.
+
 So, that's it! Enjoy it and tell us if there's any doubt or bug.
 
 ### License

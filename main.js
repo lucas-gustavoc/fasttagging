@@ -35,12 +35,12 @@ define(function (require, exports, module) {
     function createTag(basetext) {
         
         var tag = "";
-        var x = basetext.split(".");
+        var tagdata = {},
+            x = basetext.split(".");
         
         if (basetext != "") {
             if (x.length > 1) {
                 var first = true,
-                    tagdata = {},
                     classes = "";
                 x.forEach(function (item) {
                     if (first) {
@@ -62,12 +62,13 @@ define(function (require, exports, module) {
             }
         }
         
-        return tag;
+        tagdata.tag = tag;
+        return tagdata;
         
     }
     
     // Function to run when the menu item is clicked
-    function handleHelloWorld() {
+    function handlefasttagging() {
         var editor = EditorManager.getFocusedEditor();
         
         if (editor) {
@@ -76,6 +77,7 @@ define(function (require, exports, module) {
                 pos         = editor.getCursorPos(),
                 line        = document.getLine(pos.line),
                 start       = pos.ch,
+                tagdata     = {},
                 end, tags     = "";
 
             while (start > 0 && (/\S/).test(line.charAt(start - 1))) {
@@ -83,17 +85,23 @@ define(function (require, exports, module) {
             }
 
             tags = document.getRange({line: pos.line, ch: start}, {line: pos.line, ch: end});
+            tagdata = createTag(tags);
             
             end     = editor.getCursorPos();
             start   = {line: end.line, ch: end.ch - tags.length};
-            editor.document.replaceRange(createTag(tags), start, end);
+            editor.document.replaceRange(tagdata.tag, start, end);
+            
+            //putting the cursor at tag's middle
+            end = editor.getCursorPos();
+            pos = {line: end.line, ch: end.ch - (tagdata.tagname.length + 3)};
+            editor.setCursorPos(pos);
         }
     }
     
     
     // First, register a command - a UI-less object associating an id to a handler
     var MY_COMMAND_ID = "fasttagging.autocreatetag";   // package-style naming to avoid collisions
-    CommandManager.register("Auto Create TAG", MY_COMMAND_ID, handleHelloWorld);
+    CommandManager.register("Auto Create TAG", MY_COMMAND_ID, handlefasttagging);
     
     KeyBindingManager.addBinding(MY_COMMAND_ID,
                                      [{key: KEY_SHORTCUT},

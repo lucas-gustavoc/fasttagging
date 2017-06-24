@@ -1,7 +1,7 @@
 {
     "name": "brackets-fasttagging",
     "title": "FastTagging",
-    "version": "1.2.1",
+    "version": "2.2.1",
     "description": "Generates a tag with classes ans id in a really fast way.",
     "homepage": "https://github.com/lucas-gustavoc/fasttagging",
     "author": "Lucas Costa (https://github.com/lucas-gustavoc)",

@@ -14,6 +14,8 @@ With FastTagging you can only type the tag name (without the angle brackets <>) 
 
     a. p.description (pressing SHORTCUT) => <p class="description"></p>
     b. div.header.black-header (pressing SHORTCUT) => <div class="header black-header"></div>
+    c. h2 (pressing SHORTCUT) => <h2></h2>
+    d. mycustomtag (pressing SHORTCUT) => <mycustomtag></mycustomtag>
 
 If you don't want to type any tag name before the dot (.), no problem! FastTagging will put there a div for you:
 

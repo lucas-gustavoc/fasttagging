@@ -1,6 +1,6 @@
 # FastTagging for Brackets
 An extension for [Brackets](https://github.com/adobe/brackets/) to generate
-a tag with classes ans id in a really fast way.
+a tag with classes and id in a really fast way.
 
 ### How to Install
 1. Select **Brackets > File > Extension Manager...**
